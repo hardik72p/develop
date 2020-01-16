@@ -8,19 +8,6 @@
 // // }
 
 
-// function getShortMessages(messages) {
-//     var result = [];
-
-//     messages.filter(fun(item))
-
-//     function fun(item)
-//     {
-//         if(item.message.length < 50)
-//             result.push(item.message);
-//     }
-//     return result;
-//   }
-//   module.exports = getShortMessages
 
 
 function getShortMessages(messages) {

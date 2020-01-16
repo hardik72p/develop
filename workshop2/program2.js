@@ -7,6 +7,4 @@ if(num>0)
 else
     return 0;
 }
-  
-  // Do not remove the line below
   module.exports = repeat

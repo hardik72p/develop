@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>  
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> 
+</head>
+<body>
+
+    <div id='root'></div>
+    <script type="text/babel">
+        // class Calculator extends React.Component{
+           
+
+
+        //     inc=()=>this.setState({input1 : this.state.input1 + 1})
+        //     dec=()=>this.setState({input1 : this.state.input2 - 1})
+        //     add=()=>this.state.input1 + this.state.input2;
+        //     render(){
+        //        return <div>
+        //         <h2>
+        //             <centre>Hello Wel-Come</centre> 
+        //         </h2>
+
+        //         // <button onClick={this.inc}>clickMe for inc</button>
+        //         // <button onClick={this.dec}>clickMe for dec</button>
+
+ 
+        //         </div>
+        //     }
+        // }
+
+        
+        class GetInput extends React.Component{
+            state = {
+                input1: 0,
+                input2: 0,
+                ans:0
+            }
+            // setVal1=(event)=>{this.setState({input1: Number(event.target.value)})}
+            // setVal2=(event)=>{this.setState({input2: Number(event.target.value)})}
+
+            setVal=(event)=>{
+                this.setState({[event.target.name] : event.target.value} ); 
+            }
+
+            add=()=>this.setState({ans: Number(this.state.input1)+Number(this.state.input2)});
+            sub=()=>this.setState({ans: Number(this.state.input1)-Number(this.state.input2)});
+            mul=()=>this.setState({ans: Number(this.state.input1)*Number(this.state.input2)});
+            div=()=>this.setState({ans: Number(this.state.input1)/Number(this.state.input2)});
+            render(){
+                return <div>
+                <form> 
+                <input type="number" name="input1" value={this.state.input1} onChange={this.setVal}></input><br/>
+                <input type="number" name="input2" value={this.state.input2} onChange={this.setVal}></input><br/>
+                </form>
+                <button onClick={this.add}>add</button><br/>
+                <button onClick={this.sub}>sub</button><br/>
+                <button onClick={this.mul}>multiply</button><br/>
+                <button onClick={this.div}>division</button><br/>
+                
+                <h2>{this.state.ans}</h2>
+                </div>    
+            }
+        }
+
+        class Morning extends React.Component{
+            render(){
+                return <h4>Good Morning</h4>
+            }
+        }
+
+        ReactDOM.render(<GetInput/>,document.getElementById('root'));
+
+        
+    </script>
+    
+</body>
+</html>

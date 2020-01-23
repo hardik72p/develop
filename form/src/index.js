@@ -13,23 +13,15 @@ class FormData extends React.Component {
 			lname: '',
 			mname: '',
 			show: false,
-			flagToggle: false
 		}
 	}
 
-	toggleHandle = () => {
-		const { show, flagToggle } = this.state;
-
-		if (show)
-			this.setState({ flagToggle: !this.state.flagToggle });
+	done = () => {
+		const { show } = this.state;
+			this.setState({ show: !show });
 	}
 
-	submitHandler = () => {
-		const { show, flagToggle } = this.state;
-		this.setState({ show: true });
-	}
-
-	submitData = event => {
+	submitData = (event) => {
 		event.preventDefault();
 		this.setState({ [event.target.name]: event.target.value });
 	}
@@ -39,9 +31,8 @@ class FormData extends React.Component {
 			<div>
 				<App
 					submitData={this.submitData}
-					toggleHandle={this.toggleHandle}
-					submitHandler={this.submitHandler} />
-				{this.state.show ? <Show propsData={this.state}/> : this.state.flagToggle && <Show propsData={this.state}/>}
+					done={this.done} />
+				{this.state.show && <Show propsData={this.state} />}
 			</div>);
 	}
 }

@@ -5,18 +5,16 @@ import CalUI from './calUI.js';
 class App extends React.Component {
 
   state = {
-    input1: '',
+    input1: 0,
     input2: 0,
     op: '',
-    ans: 0
   }
 
   clear = () => {
     this.setState({
-      input1: '',
+      input1: 0,
       input2: 0,
       op: '',
-      ans: 0
     });
   }
 
@@ -29,24 +27,21 @@ class App extends React.Component {
   concat = e => {
     const { input1 } = this.state;
 
-    this.setState({ input1: input1 + e.target.value });
+    console.log(input1*10);
+    this.setState({ input1: Number((this.state.input1*10) + (e.target.value % 10)) });
   }
 
   oprationEQ = () => {
-    const { input1, input2, op, ans } = this.state;
+    const { input1, input2, op } = this.state;
 
     if (op === '+')
-      this.setState({ ans: (Number(input2) + Number(input1)), input1: this.state.ans });
+      this.setState({ input1: (Number(input2) + Number(input1)) });
     if (op === '-')
-      this.setState({ ans: (Number(input2) - Number(input1)), input1: this.state.ans });
+      this.setState({ input1: (Number(input2) - Number(input1)) });
     if (op === '*')
-      this.setState({ ans: (Number(input2) * Number(input1)), input1: this.state.ans });
+      this.setState({ input1: (Number(input2) * Number(input1)) });
     if (op === '/')
-      this.setState({ ans: (Number(input2) / Number(input1)), input1: this.state.ans });
-
-    this.setState({ input1: ans });
-
-    //setTimeout( () => this.setState({ input1 : this.state.ans }));     //2nd way
+      this.setState({ input1: (Number(input2) / Number(input1)) });
   }
 
   render() {

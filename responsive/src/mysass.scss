@@ -1,0 +1,55 @@
+h1 , h2 , h3{
+	text-align: center;
+} 
+.header{
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	width: 100%;
+	color: #3ae365;
+	height: 100px;
+	background-color: #4540aa ;
+}
+.footer{
+	width: 100%;
+	bottom: 0px;
+	color: #3ae365;
+	background-color: #4540aa ;
+	height: 420px;
+	background-image: url(./logo.svg);
+	background-repeat: no-repeat;
+	background-position-x: center;
+
+	-webkit-animation: spinX 3s infinite;
+    animation: spinX 3s infinite;
+}
+@-webkit-keyframes spinX
+{  
+0%   {-webkit-transform: rotateX(0deg); -webkit-transform-origin: 0% 50% 0;}  
+100% {-webkit-transform: rotateX(360deg); -webkit-transform-origin: 0% 50% 0;}  
+}
+@keyframes spinX
+{  
+0%   {transform: rotateX(0deg); transform-origin: 0% 50% 0;}  
+100% {transform: rotateX(360deg); transform-origin: 0% 50% 0;}  
+}
+
+.main-container
+{
+	display: flex;
+	flex-direction: column;		
+}
+.flex-container
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	scroll-behavior: auto;	
+}
+.card{
+	margin: 40px;
+	padding: 10px;
+	border-radius: 10px;
+	border: solid 2px #2646a0;
+	box-shadow: 3px 3px #4540aa;
+}

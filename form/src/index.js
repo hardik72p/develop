@@ -18,7 +18,7 @@ class FormData extends React.Component {
 
 	done = () => {
 		const { show } = this.state;
-			this.setState({ show: !show });
+		this.setState({ show: !show });
 	}
 
 	submitData = (event) => {
@@ -32,7 +32,8 @@ class FormData extends React.Component {
 				<App
 					submitData={this.submitData}
 					done={this.done} />
-				{this.state.show && <Show propsData={this.state} />}
+				<Show data={this.state} />
+				{/* {this.state.show && <Show propsData={this.state} />}     2nd Way */}
 			</div>);
 	}
 }

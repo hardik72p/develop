@@ -31,7 +31,7 @@ class Event extends React.Component {
 
         return (
             <div>
-                <h1> Event Handling </h1><br /><br />
+                <h1 > Event Handling </h1><br /><br />
 
                 <h3> Arrow Binding </h3>
                 <label>Enter Name:</label>

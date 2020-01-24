@@ -1,11 +1,14 @@
 import React from 'react';
 function Show(props) {
-	return (
-		<div>
-			Fname : {props.propsData.fname}<br />
-			Mname : {props.propsData.mname}<br />
-			Lname : {props.propsData.lname}<br />
+	
+	if(props.data.show)
+		return<div>
+			Fname : {props.data.fname}<br />
+			Mname : {props.data.mname}<br />
+			Lname : {props.data.lname}<br />
 		</div>
-	);
+	
+	return null;
+
 }
 export default Show;

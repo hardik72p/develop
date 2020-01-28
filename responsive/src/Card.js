@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Card() {
+function Card(props) {
 	return (
 		<div className="card">
-			<h2>login</h2>
-			<p>Some things in CSS are a bit tedious to write, especially with CSS3 and the many vendor prefixes that exist.</p>
+			<h2>{props.title}</h2>
+			<p>{props.para}</p>
 		</div>
 	);
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import Event from './Event.js';
-import './mysaas.scss'
 
 function ClearWindow(props) {
 

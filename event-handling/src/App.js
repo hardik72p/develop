@@ -1,6 +1,5 @@
 import React from 'react';
 import ClearWindow from './ClearWindow';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
@@ -10,7 +9,7 @@ class App extends React.Component {
 
   clearHandler = event => {
     const { isClear } = this.state
-    this.setState({ isClear: !this.state.isClear });
+    this.setState({ isClear: !isClear });
   }
 
   render() {

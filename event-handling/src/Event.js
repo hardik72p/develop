@@ -29,10 +29,15 @@ class Event extends React.Component {
     render() {
         const { user } = this.state;
 
+
         return (
             <div>
                 <h1 > Event Handling </h1><br /><br />
-
+                {(() => {
+                    for (let i = 0; i < 5; i++) {
+                        console.log(i);
+                    }
+                })()}
                 <h3> Arrow Binding </h3>
                 <label>Enter Name:</label>
                 <input type="text" name="user" onChange={this.eventHandler} /><br />

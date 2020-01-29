@@ -1,0 +1,45 @@
+h1{
+    text-shadow: 1px 1px;
+    text-decoration-style: solid;
+    color: rgb(197, 240, 154);
+}
+.flex-container{
+    display: flex;
+    flex-direction: row;
+}
+.user-list{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 600px;
+    background-color: #3b54ac;
+    .list{
+        margin: 5px;
+        border: 0px;
+        height: 50px;
+        text-shadow: 1px 1px;
+        text-decoration-style: solid;
+        font-size: 20px;        
+    }
+}
+.user-dash-board{
+
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items : center;
+    width: 75%;
+    height: 600px;
+    background-color: #000000;
+    .user-img{
+        width: 250px;
+        height: 200px;
+        border-radius: 100%;
+        border-style: solid;
+        box-shadow: 5px 5px 2px 2px #3b54ac;
+    }
+    .user-data-email{
+        color: #4a72df; 
+        text-decoration: underline
+    }
+}

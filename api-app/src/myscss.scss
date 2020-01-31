@@ -3,6 +3,16 @@ h1{
     text-decoration-style: solid;
     color: rgb(197, 240, 154);
 }
+.main-container{
+    display: flex;
+    flex-direction: column;
+    
+    .header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }   
+}
 .flex-container{
     display: flex;
     flex-direction: row;
@@ -13,13 +23,19 @@ h1{
     width: 25%;
     height: 600px;
     background-color: #3b54ac;
-    .list{
+    .list-button{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         margin: 5px;
         border: 0px;
         height: 50px;
         text-shadow: 1px 1px;
         text-decoration-style: solid;
         font-size: 20px;        
+        .name{
+            width: 100%;
+        }
     }
 }
 .user-dash-board{

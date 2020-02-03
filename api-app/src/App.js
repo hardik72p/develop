@@ -48,7 +48,9 @@ class App extends Component {
   }
 
   updateListHandler = () => {
-    this.setState({ reloadList: true });
+    console.log("*************");
+    const { reloadList }=this.state;
+    this.setState({ reloadList: !reloadList });
   }
 
   render() {
@@ -70,6 +72,7 @@ class App extends Component {
             <UserList getUserId={this.getUserId}
               reloadList={this.state.reloadList}
               flagNewUser={this.state.flagNewUser}
+              updateListHandler={this.updateListHandler}
             />
 
             <UserDashBoard

@@ -11,10 +11,10 @@ class UserList extends Component {
 	state = {
 		user: [],
 		deleteId: '',
-		show:false
+		show: false
 	}
 
-	componentWillReceiveProps() {
+	componentDidUpdate() {
 		axios.get('http://192.168.2.65:3030/posts')
 			.then(response => {
 				this.setState({ user: response.data.data });
@@ -23,6 +23,15 @@ class UserList extends Component {
 				console.log('Error fetching and parsing data', error);
 			});
 	}
+	// componentWillReceiveProps() {
+	// 	axios.get('http://192.168.2.65:3030/posts')
+	// 		.then(response => {
+	// 			this.setState({ user: response.data.data });
+	// 		})
+	// 		.catch(error => {
+	// 			console.log('Error fetching and parsing data', error);
+	// 		});
+	// }
 
 	componentDidMount(prevProps) {
 		if (this.props !== prevProps) {
@@ -40,30 +49,32 @@ class UserList extends Component {
 		this.setState({ show: false });
 	}
 
-	modalHandler = e => {
-		console.log("******((((("+e.target.id);
-		this.setState({ show: true, deleteId: e.target.id });
+	modalHandler = id => {
+		console.log("******(((((" + id);
+		this.setState({ show: true, deleteId: id });
 	}
 
 	deleteHandler = event => {
 		this.setState({ show: false });
 		axios.delete(`http://192.168.2.65:3030/posts/${this.state.deleteId}`)
-			.then(res => console.log(res.data));
+			.then(res => console.log(res.data))
+			.then(this.props.updateListHandler());
 	}
 
 	render() {
 		let name;
-		const { show }=this.state
+		const { show } = this.state
 		return (
 			<>
 				<div className="user-list">
 					<center><h1> User List </h1></center>
 					{this.state.user.map((item, i) => {
+
 						name = item.title + " " + item.body;
 						return (
 							<div className="list-button">
 								<button key={i} className="name" value={item._id} onClick={this.props.getUserId} >{item.title + " " + item.body} </button>
-								<button id={item._id} onClick={(e)=>this.modalHandler(e)}><FontAwesomeIcon icon={faTrashAlt} /></button>
+								<button onClick={() => this.modalHandler(item._id)}><FontAwesomeIcon icon={faTrashAlt} /></button>
 							</div>
 						)
 					})}
@@ -73,12 +84,12 @@ class UserList extends Component {
 						<Modal.Title style={{ color: "red" }}>Are You Sure???</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-
+						<h1>name</h1>
 					</Modal.Body>
 					<Modal.Footer>
 						<Button variant="secondary" onClick={this.handleClose}>
 							Close
-				</Button>
+						</Button>
 						<Button variant="light" onClick={this.deleteHandler} >
 							<FontAwesomeIcon icon={faCheck} style={{ color: "green" }} />
 						</Button>

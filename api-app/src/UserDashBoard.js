@@ -1,11 +1,11 @@
 import React from 'react';
-import { Component } from "react";
+import { Component } from 'react';
 import './myscss.scss';
 import axios from 'axios';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserEdit } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
 
 
 class UserDashBoard extends Component {
@@ -20,7 +20,6 @@ class UserDashBoard extends Component {
 			show: false
 		}
 	}
-
 
 	// UNSAFE_componentWillReceiveProps(props) {
 	// 	axios.get(`https://reqres.in/api/users/${props.userId}`)
@@ -60,7 +59,7 @@ class UserDashBoard extends Component {
 	}
 
 	updateSubmitHandler = (e) => {
-		const{title , body}=this.state;
+		const { title, body } = this.state;
 
 		this.setState({ show: false }, () => {
 			const upadetUser = {
@@ -76,7 +75,7 @@ class UserDashBoard extends Component {
 	}
 
 	render() {
-		const {show, _id, title, body } = this.state
+		const { show, _id, title, body } = this.state
 		return (
 			<>
 				{_id && <div className="user-dash-board">
@@ -102,24 +101,6 @@ class UserDashBoard extends Component {
 						</Button>
 					</Modal.Footer>
 				</Modal>
-
-				{/* <Modal show={this.props.newUserModal} onHide={this.newUserClose}>
-					<Modal.Header closeButton>
-						<Modal.Title>Modal heading</Modal.Title>
-					</Modal.Header>
-					<Modal.Body>
-						First Name:<input type="text" /><br />
-						Last Name:<input type="text" /><br />
-					</Modal.Body>
-					<Modal.Footer>
-						<Button variant="secondary" onClick={this.newUserClose}>
-							Close
-						</Button>
-						<Button variant="primary" onClick={this.newUserSubmit}>
-							Save Changes
-						</Button>
-					</Modal.Footer>
-				</Modal> */}
 			</>
 		);
 	}

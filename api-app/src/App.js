@@ -4,8 +4,8 @@ import UserDashBoard from './UserDashBoard.js';
 import './myscss.scss';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 
@@ -48,13 +48,12 @@ class App extends Component {
   }
 
   updateListHandler = () => {
-    console.log("*************");
-    const { reloadList }=this.state;
+    const { reloadList } = this.state;
     this.setState({ reloadList: !reloadList });
   }
 
   render() {
-    const { newUserModal} = this.state;
+    const { newUserModal } = this.state;
     const addUser = {
       color: "blue",
       fontSize: "50px"

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Component } from "react";
+import { Component } from 'react';
 import './myscss.scss';
 import axios from 'axios';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashAlt, faCheck } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 class UserList extends Component {
 	state = {
@@ -50,7 +50,6 @@ class UserList extends Component {
 	}
 
 	modalHandler = id => {
-		console.log("******(((((" + id);
 		this.setState({ show: true, deleteId: id });
 	}
 
@@ -69,12 +68,13 @@ class UserList extends Component {
 				<div className="user-list">
 					<center><h1> User List </h1></center>
 					{this.state.user.map((item, i) => {
-
-						name = item.title + " " + item.body;
 						return (
 							<div className="list-button">
 								<button key={i} className="name" value={item._id} onClick={this.props.getUserId} >{item.title + " " + item.body} </button>
-								<button onClick={() => this.modalHandler(item._id)}><FontAwesomeIcon icon={faTrashAlt} /></button>
+								<button onClick={() => {
+									name = item.title + " " + item.body;
+									this.modalHandler(item._id)
+								}}><FontAwesomeIcon icon={faTrashAlt} /></button>
 							</div>
 						)
 					})}
@@ -84,7 +84,7 @@ class UserList extends Component {
 						<Modal.Title style={{ color: "red" }}>Are You Sure???</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-						<h1>name</h1>
+						<h1>{name}</h1>
 					</Modal.Body>
 					<Modal.Footer>
 						<Button variant="secondary" onClick={this.handleClose}>

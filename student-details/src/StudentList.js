@@ -10,7 +10,7 @@ class StudentList extends Component {
 					student.map((stud, i) => {
 						return (
 							<>
-								<input key={i}  value={stud.first_name + " " + stud.last_name} />
+								<input key={i} value={stud.first_name + " " + stud.last_name} />
 								<Link to={`/user/${stud.id}`}><button>INFO</button></Link>
 								<br />
 							</>

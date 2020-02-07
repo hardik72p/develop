@@ -8,22 +8,16 @@ import StudentList from './StudentList';
 import Student from './Student';
 
 
-const routing=(
-    <BrowserRouter>
-        <Switch>
-            <Route exact path="/" component={StudentList}/>
-            <Route path="/user/:id" component={Student}/>
-            <Route path="/user" component={StudentList}/>
-            <Route component={StudentList}/>
-           
-        </Switch>
-    </BrowserRouter>
+const routing = (
+	<BrowserRouter>
+		<Switch>
+			<Route exact path="/" component={StudentList} />
+			<Route path="/user/:id" component={Student} />
+			<Route path="/user" component={StudentList} />
+			<Route component={StudentList} />
+		</Switch>
+	</BrowserRouter>
 );
-
-
-
-
-
 
 ReactDOM.render(routing, document.getElementById('root'));
 

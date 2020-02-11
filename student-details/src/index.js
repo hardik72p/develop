@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import StudentList from './StudentList';
 import Student from './Student';
+import NotFound from './NotFound';
 
 
 const routing = (
@@ -14,7 +15,7 @@ const routing = (
 			<Route exact path="/" component={StudentList} />
 			<Route path="/user/:id" component={Student} />
 			<Route path="/user" component={StudentList} />
-			<Route component={StudentList} />
+			<Route component={NotFound} />
 		</Switch>
 	</BrowserRouter>
 );

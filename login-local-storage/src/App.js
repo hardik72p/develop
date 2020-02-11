@@ -9,36 +9,19 @@ class App extends Component {
       id: '',
       passWord: '',
     }
-
-    if(localStorage.getItem("id") !== null)
-    {
-      this.props.history.push('/login');
-    }
-
-    // localStorage.getItem("id") ? this.props.history.push('/login'):''
-    // this.checkLogin();
   }
-
-  dataHandler = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
-  storeHandler = () => {
-    const { id, passWord } = this.state;
-    localStorage.setItem("id", id);
-    localStorage.setItem("passWord", passWord);
-    this.props.history.push('/login');
+  loginHandler = () => {
+    this.props.history.push("/login");
   }
 
   render() {
     return (
       <>
-        User Id: <input type="text" name="id" onChange={this.dataHandler} /><br /><br />
-        Pass Word: <input type="text" name="passWord" onChange={this.dataHandler} /><br /><br />
-        <input type="button" value="Submit" onClick={this.storeHandler} />
+        <input type="button" value="Login" onClick={this.loginHandler} />
       </>
     );
   }
+
 }
 
 export default App;

@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import AppJS from './AppJS';
+import App from './App';
+import PropTypes from 'prop-types';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
+import UserForm from './UserForm';
 
-
-
-ReactDOM.render(<AppJS />, document.getElementById('root'));
+ReactDOM.render(<UserForm/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

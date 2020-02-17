@@ -39,7 +39,7 @@ class App extends Component {
     switch (name) {
 
       case 'firstName':
-        pattern = /^[A-Z]+[a-z]+$/;
+        pattern = /^[a-z]+$/;
         pattern.test(value)
           ? (obj.firstName = false)
           : obj.firstName = true
@@ -47,7 +47,7 @@ class App extends Component {
         break;
 
       case 'lastName':
-        pattern = /^[A-Z]+[a-z]+$/;
+        pattern = /^[a-z]+$/;
         pattern.test(value)
           ? obj.lastName = false
           : obj.lastName = true

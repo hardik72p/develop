@@ -115,7 +115,7 @@ export const MyRadio = (props) => {
 	);
 }
 
-export const DropDown = (props) => {
+export const DropDown2 = (props) => {
 	return (
 		<FormGroup>
 			<Label>
@@ -136,7 +136,7 @@ export const DropDown = (props) => {
 	);
 }
 
-export const DropDown2 = (props) => {
+export const DropDown = (props) => {
 	return (
 		<FormGroup>
 			<Label>

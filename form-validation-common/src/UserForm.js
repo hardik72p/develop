@@ -8,7 +8,7 @@ import {
 	CardTitle,
 	Form
 } from 'reactstrap';
-import { InputBox, CheckBox, MyRadio, DropDown2 } from './InputBox';
+import { InputBox, CheckBox, MyRadio, DropDown } from './InputBox';
 
 class UserForm extends Component {
 	constructor() {
@@ -16,7 +16,6 @@ class UserForm extends Component {
 		this.state = {
 			formData: {
 				firstName: '',
-				middleName: '',
 				lastName: '',
 				email: '',
 				passWord: '',
@@ -29,7 +28,6 @@ class UserForm extends Component {
 			},
 			formError: {
 				firstName: null,
-				middleName: null,
 				lastName: null,
 				email: null,
 				passWord: null,
@@ -67,9 +65,11 @@ class UserForm extends Component {
 	}
 
 	dataHandler = (e) => {
-		const { formData } = this.state;
+		const { formData, formError } = this.state;
 		const { name, value, checked } = e.target;
 		let formDataObj = formData;
+
+
 
 		if (name === "hobbies") {
 			if (checked)
@@ -79,7 +79,7 @@ class UserForm extends Component {
 			}
 		} else formDataObj = { ...formData, [name]: value }
 
-		this.setState({ formData: formDataObj });
+		this.setState({ formData: formDataObj, formError: { ...formError, [name]: '' } });
 	}
 
 	getRegEx = (name) => {
@@ -97,22 +97,21 @@ class UserForm extends Component {
 				return /^[0-9]{10}$/;
 
 			case 'email':
-				return /^[A-Za-z0-9.]+[A-Za-z_]+@[a-z]+\.[a-z.]{1,3}$/;
+				return /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/;
 
 			case 'passWord':
 				return /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})/;
 		}
 	}
-
 	validationHandler = (e) => {
 		const { formData, formError } = this.state;
 		const { name, value, title, attributes } = e.target;
 		let errorMessage = '';
-
-		// console.log("access coustom attribute", e.target.attributes.getNamedItem("data-customAttribute").value, "set by InputBox #data-*att_name*");
+		let formDataColne = formData;
+		// console.log("access coustom attribute", !e.target.attributes.getNamedItem("data-attribute").value, "set by InputBox #data-*att_name*");
 
 		if (name === 'hobbies') {
-			if (!formData.hobbies.length)
+			if (formData.hobbies.length === 0)
 				errorMessage = `Please Select ${title}`;
 		}
 		else if (!value && attributes.getNamedItem("data-attribute").value === 'true')
@@ -121,19 +120,23 @@ class UserForm extends Component {
 			errorMessage = `Invalid ${title} -use special, upper, lower, digit`;
 		else if (value && this.getRegEx(name) && !this.getRegEx(name).test(value))
 			errorMessage = `Invalid ${title}`;
+		else if(!value && attributes.getNamedItem("data-attribute").value === 'false')
+				delete this.state.formData.middleName;
 
-		this.setState({ formError: { ...formError, [name]: errorMessage } })
+		this.setState({ formData:formDataColne ,formError: { ...formError, [name]: errorMessage } })
 	}
 
 	submitHandler = (e) => {
 		const { formData, formError } = this.state
-
+		let errorMessage = '';
+		let errorObj = formError;
 		Object.keys(formData).map((value) => {
-			if(!formData[value] || formData[value].length===0)
-			{
-				
+			if (!formData[value] || formData[value].length == 0) {
+				errorMessage = `invalid ${value}`;
+				errorObj[value] = errorMessage;
 			}
 		})
+		this.setState({formError: errorObj});
 	}
 
 	render() {
@@ -154,7 +157,7 @@ class UserForm extends Component {
 										value={formData.firstName}
 										isReq={true}
 										errorMessage={formError.firstName}
-										onChange={this.dataHandler}
+										onBlur={this.dataHandler}
 										onBlur={this.validationHandler}
 									/>
 
@@ -181,7 +184,7 @@ class UserForm extends Component {
 
 									<InputBox
 										label='Mobile No.'
-										type='number'
+										type='tel'
 										name='mobile'
 										value={formData.mobile}
 										isReq={true}
@@ -244,7 +247,7 @@ class UserForm extends Component {
 										onBlur={this.validationHandler}
 									/>
 
-									<DropDown2
+									<DropDown
 										label='City'
 										isReq={true}
 										name='city'

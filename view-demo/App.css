@@ -1,0 +1,25 @@
+.block {
+  border: 1px solid rgb(20, 172, 192);
+  margin: 2px;
+  margin-bottom: 25px;
+  padding: 1%;
+}
+.block-second {
+  margin: 1%;
+  border: 1px solid rgb(20, 172, 192);
+  padding: 1%;
+  width: 1200px;
+}
+Container {
+  width: 100%;
+}
+.scroll {
+  flex: 1;
+  overflow: auto;
+  height: 500px;
+  width: 100%;
+}
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+

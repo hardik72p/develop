@@ -31,7 +31,7 @@ class MyTable extends Component {
 					"first_name": "Tobias",
 					"last_name": "Funke",
 					// "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/vivekprvr/128.jpg"
-		
+
 				},
 				{
 					"id": 10,

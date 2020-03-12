@@ -50,30 +50,29 @@ class CardNumber extends Component {
 export default CardNumber;
 
 
- import * as Validations from '../../../validations/CommonValidations'; 
-    export const phoneNumberValidation = function(value){
-           let input = value.replace(/\D/g,'');
-            input = input.substring(0,10);
-            var size = input.length;
-              if(size == 0){
-                      input = input;
-               }else if(size < 4){
-                     input = '('+input;
-               }else if(size < 7){
-                       input = '('+input.substring(0,3)+') '+input.substring(3,6);
-               }else{
-                       input = '('+input.substring(0,3)+') '+input.substring(3,6)+' - 
-                    '+input.substring(6,10);
-               }
-               return input;
-        }
+// import * as Validations from '../../../validations/CommonValidations';
+// export const phoneNumberValidation = function (value) {
+// 	let input = value.replace(/\D/g, '');
+// 	input = input.substring(0, 10);
+// 	var size = input.length;
+// 	if (size == 0) {
+// 		input = input;
+// 	} else if (size < 4) {
+// 		input = '(' + input;
+// 	} else if (size < 7) {
+// 		input = '(' + input.substring(0, 3) + ') ' + input.substring(3, 6);
+// 	} else {
+// 		input = '(' + input.substring(0, 3) + ') ' + input.substring(3, 6) + ' - ' + input.substring(6, 10);
+// 	}
+// 	return input;
+// }
 
 
 
-    handleChange=(name,event,value)=>{
-             let phoneValid =  Validations.phoneNumberValidation(val);
-              this.setState({phone: Validations.isValidPhone(phoneValid)})
+// handleChange = (name, event, value) => {
+// 	let phoneValid = Validations.phoneNumberValidation(val);
+// 	this.setState({ phone: Validations.isValidPhone(phoneValid) })
 
-       }
+// }
 
-     <TextField floatingLabelText={this.getMandatoryDetails("Mobile")} autoComplete="off" maxLength="16" value={this.state.phone || ""} onChange={this.handleChange.bind(this, 'phone')} />
+// <TextField floatingLabelText={this.getMandatoryDetails("Mobile")} autoComplete="off" maxLength="16" value={this.state.phone || ""} onChange={this.handleChange.bind(this, 'phone')} />

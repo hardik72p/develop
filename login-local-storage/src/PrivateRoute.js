@@ -37,11 +37,7 @@ function PrivateRoute(props) {
 				<Route path={props.path} component={props.component} />
 			</>
 		)
-<<<<<<< HEAD
-	return <Redirect to="/login" />
-=======
 			return <Redirect to="/login" />
->>>>>>> e8c7646f4dfce7919993fc6f5f6cd0522f1ec2bd
 }
 
 export default PrivateRoute;

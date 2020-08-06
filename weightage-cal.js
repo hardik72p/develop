@@ -31,7 +31,7 @@ list.map((i) => {
 //
 
 //temp =  newArr.filter((item,i) => newArr.indexOf(item) === i)  //TO Remove Duplicated Elements From Array
-
+///
 
 
 //

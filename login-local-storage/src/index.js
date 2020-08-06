@@ -2,19 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import * as serviceWorker from'./serviceWorker';
+import * as serviceWorker from './serviceWorker';
 import App from './App';
 import LogIn from './LogIn';
 
 import PrivateRoute from './PrivateRoute';
 import DashBoard from './DashBoard';
+import Hardik from './Hardik';
 
 const routing = (
 	<BrowserRouter>
 		<Switch>
 			<Route exact path="/" component={App} />
-			<PrivateRoute path="/dashboard" component={DashBoard}/>
+			<PrivateRoute path="/dashboard" component={DashBoard} />
 			<Route path="/login" component={LogIn} />
+			<Route path="/page" component={Hardik} />
 		</Switch>
 	</BrowserRouter>
 );

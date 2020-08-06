@@ -9,12 +9,17 @@ class DashBoard extends Component {
 		this.props.history.push('/login');
 	}
 
+	pageHandler=()=>{
+		this.props.history.push('/page');
+	}
+
 	render() {
 		return (
 			<>
 				<h1> Wel-Come</h1>
 				<h3>{localStorage.getItem("id")}</h3>
 				<input type="button" value="Logout" onClick={this.logOutHandler} />
+				<input type="button" value="Next Page" onClick={this.pageHandler} />
 			</>
 		)
 	}

@@ -9,6 +9,8 @@ class App extends Component {
       id: '',
       passWord: '',
     }
+    if(localStorage.getItem("id"))
+      this.props.history.push("/dashboard");
   }
   loginHandler = () => {
     this.props.history.push("/login");

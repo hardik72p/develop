@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Show from './show';
+import MyApp from './Payment/MyApp';
+import PayPalApp from './PayWithPaypal/PayPalApp';
 
 class FormData extends React.Component {
 	constructor(props) {
@@ -38,6 +40,10 @@ class FormData extends React.Component {
 	}
 }
 
-ReactDOM.render(<FormData />, document.getElementById('root'));
+ReactDOM.render(<PayPalApp />, document.getElementById('root'));
+
+// ReactDOM.render(<MyApp />, document.getElementById('root'));
+
+// ReactDOM.render(<FormData />, document.getElementById('root'));
 
 serviceWorker.unregister();

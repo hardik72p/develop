@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import scriptLoader from "react-async-script-loader";
-
-const CLIENT_ID = "";
+import { PAYPAL_CLIENT_ID } from '../Constants';
 
 let PayPalButton = null;
 class PaypalButton extends React.Component {
@@ -73,7 +72,7 @@ class PaypalButton extends React.Component {
 
     return (
       <div className="main">
-        {loading }
+        {loading}
 
         {showButtons && (
           <div>
@@ -87,7 +86,7 @@ class PaypalButton extends React.Component {
         {paid && (
           <div className="main">
             <h2>
-              Congrats! you just paid 
+              Congrats! you just paid
             </h2>
           </div>
         )}
@@ -97,4 +96,4 @@ class PaypalButton extends React.Component {
 }
 
 
-export default scriptLoader(`https://www.paypal.com/sdk/js?client-id=${CLIENT_ID}`)(PaypalButton);
+export default scriptLoader(`https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}`)(PaypalButton);

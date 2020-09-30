@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PaypalButton from './PaypalButton';
+import { PAYPAL_CLIENT_ID } from '../Constants';
 
 class PayPalApp extends Component {
   state = {
@@ -17,8 +18,7 @@ class PayPalApp extends Component {
     } else {
       return (
         <div className="main">
-          <h2> Buy this Mercedes at a giveaway price (Super Cheap) </h2>
-          <img alt="Mercedes G-Wagon" src={''} />
+          {console.log(">>>>>>>>>>>>>>>>>>>>>>>>>",PAYPAL_CLIENT_ID)}
           <h3>
             <b>$200</b>
           </h3>
